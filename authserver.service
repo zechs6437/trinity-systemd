@@ -1,0 +1,19 @@
+[Unit]
+Description=TrinityCore Authentication Server
+
+[Service]
+WorkingDirectory=/home/trinity/server
+User=trinity
+
+ExecStart=/home/trinity/server/bin/authserver
+
+ExecReload=/bin/kill -HUP $MAINPID; /home/trinity/server/bin/authserver
+
+ExecStop=/bin/kill -HUP $MAINPID
+RestartSec=10s
+
+Restart=always
+
+
+[Install]
+WantedBy=multi-user.target
