@@ -1,0 +1,19 @@
+[Unit]
+Description=TrinityCore World Server
+
+[Service]
+WorkingDirectory=/home/trinity/server
+User=trinity
+
+ExecStart=/home/trinity/server/bin/worldserver
+
+ExecReload=/bin/kill -HUP $MAINPID; /home/trinity/server/bin/worldserver
+
+ExecStop=/bin/kill -HUP $MAINPID
+RestartSec=10s
+
+Restart=always
+
+
+[Install]
+WantedBy=multi-user.target
