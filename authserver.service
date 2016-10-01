@@ -2,14 +2,15 @@
 Description=TrinityCore Authentication Server
 
 [Service]
-WorkingDirectory=/home/trinity/server
-User=trinity
+Type=forking
+WorkingDirectory=/root/serverSingleCore
+User=root
 
-ExecStart=/home/trinity/server/bin/authserver
+ExecStart=/usr/bin/screen -dmS authserver /root/serverSingleCore/bin/authserver
 
-ExecReload=/bin/kill -HUP $MAINPID; /home/trinity/server/bin/authserver
+ExecReload=/usr/bin/killall -w -s 15 authserver; /usr/bin/screen -dmS authserver /root/serverSingleCore/bin/authserver
 
-ExecStop=/bin/kill -HUP $MAINPID
+ExecStop=/usr/bin/killall -w -s 15 authserver
 RestartSec=10s
 
 Restart=always

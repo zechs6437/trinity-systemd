@@ -2,14 +2,15 @@
 Description=TrinityCore World Server
 
 [Service]
-WorkingDirectory=/home/trinity/server
-User=trinity
+Type=forking
+WorkingDirectory=/root/serverSingleCore
+User=root
 
-ExecStart=/home/trinity/server/bin/worldserver
+ExecStart=/usr/bin/screen -dmS worldserver /root/serverSingleCore/bin/worldserver
 
-ExecReload=/bin/kill -HUP $MAINPID; /home/trinity/server/bin/worldserver
+ExecReload=/usr/bin/killall -w -s 15 worldserver; /usr/bin/screen -dmS worldserver /root/serverSingleCore/bin/worldserver
 
-ExecStop=/bin/kill -HUP $MAINPID
+ExecStop=/usr/bin/killall -w -s 15 worldserver
 RestartSec=10s
 
 Restart=always
