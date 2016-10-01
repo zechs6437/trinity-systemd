@@ -8,9 +8,9 @@ User=root
 
 ExecStart=/usr/bin/screen -dmS worldserver /root/serverSingleCore/bin/worldserver
 
-ExecReload=/usr/bin/killall -w -s 15 worldserver; /usr/bin/screen -dmS worldserver /root/serverSingleCore/bin/worldserver
+ExecReload=/usr/bin/screen -S worldserver -p 0 -X stuff "server shutdown force 0\\r"; /usr/bin/screen -dmS worldserver /root/serverSingleCore/bin/worldserver
 
-ExecStop=/usr/bin/killall -w -s 15 worldserver
+ExecStop=/usr/bin/screen -S worldserver -p 0 -X stuff "server shutdown force 0\\r"
 RestartSec=10s
 
 Restart=always
