@@ -3,7 +3,7 @@ Description=TrinityCore Authentication Server
 
 [Service]
 Type=forking
-WorkingDirectory=/root/serverSingleCore
+WorkingDirectory=/root/serverSingleCore/bin
 User=root
 
 ExecStart=/usr/bin/screen -dmS authserver /root/serverSingleCore/bin/authserver

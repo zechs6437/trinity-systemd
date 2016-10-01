@@ -3,7 +3,7 @@ Description=TrinityCore World Server
 
 [Service]
 Type=forking
-WorkingDirectory=/root/serverSingleCore
+WorkingDirectory=/root/serverSingleCore/bin
 User=root
 
 ExecStart=/usr/bin/screen -dmS worldserver /root/serverSingleCore/bin/worldserver
