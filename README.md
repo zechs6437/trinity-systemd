@@ -1,10 +1,20 @@
 # trinity-systemd
 
 ## Installation
-* Move these files into /etc/systemd/system.
-* Create a `trinity` user. 
-* Modify any paths that need to be changed for your build paths.
+* Modify any paths that need to be changed for your build paths
+* Modify the `User=` variable as well
+* Copy/Move these files into `/etc/systemd/system`
+* Enable the services using `systemctl enable worldserver` and `systemctl enable authserver`
+* To start the servers, reboot or use `systemctl start worldserver` and `systemctl start authserver`
+
+## Server Management
+* Use `screen -r worldserver` or `screen -r authserver` to manage the worldserver and authserver respectively
 
 ## Notes
-* Make sure you have SOAP or RA enabled as you will not be able to access the server via direct console if it's running as a service.
-* This is very much still in don't-use-this-because-it's-not-prod-ready-yet state. Haven't even put it on my own server yet.
+* You must have `screen` installed on your Linux box to be able to use these services. Installing `screen` on Debian is as easy as doing `apt-get install screen`
+
+## Credits
+[velinath](https://github.com/velinath)
+
+
+> Forked/mirrored from [https://github.com/velinath/trinity-systemd](https://github.com/velinath/trinity-systemd)
